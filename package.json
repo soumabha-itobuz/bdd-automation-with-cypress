@@ -1,0 +1,42 @@
+{
+  "scripts": {
+    "cy:open": "cypress open",
+    "test": "cucumber-js"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": false,
+    "stepDefinitions": [
+      "cypress/e2e/stepDefinitions/[filepath]/**/*.steps.ts",
+      "cypress/e2e/stepDefinitions/**"
+    ]
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^10.8.0",
+    "cypress": "^13.13.1",
+    "typescript": "^5.5.4"
+  },
+  "name": "bdd-automation-with-cypress",
+  "description": "Automation testing in BDD format using cypress and cucumber",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soumabha-itobuz/bdd-automation-with-cypress.git"
+  },
+  "author": "Zenia Banerjee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/soumabha-itobuz/bdd-automation-with-cypress/issues"
+  },
+  "homepage": "https://github.com/soumabha-itobuz/bdd-automation-with-cypress#readme",
+  "dependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^20.1.0",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.1",
+    "cypress-cucumber-preprocessor": "^4.3.1",
+    "cypress-dotenv": "^2.0.0",
+    "cypress-mochawesome-reporter": "^3.8.2",
+    "i": "^0.3.7",
+    "npm": "^10.8.2",
+    "soft-assert": "^0.2.7"
+  }
+}
