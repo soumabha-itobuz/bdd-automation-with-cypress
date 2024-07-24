@@ -1,17 +1,17 @@
 {
   "scripts": {
     "cy:open": "cypress open",
-    "test": "cucumber-js"
+    "cucumber": "cucumber-js",
+    "test": "npx cypress run "
   },
   "cypress-cucumber-preprocessor": {
-    "nonGlobalStepDefinitions": false,
-    "stepDefinitions": [
-      "cypress/e2e/stepDefinitions/[filepath]/**/*.steps.ts",
-      "cypress/e2e/stepDefinitions/**"
-    ]
+    "step_definitions": "cypress/e2e/Features/**/",
+    "nonGlobalStepDefinitions": true
   },
   "devDependencies": {
     "@cucumber/cucumber": "^10.8.0",
+    "@types/cypress-cucumber-preprocessor": "^4.0.5",
+    "@types/cypress-dotenv": "^2.0.3",
     "cypress": "^13.13.1",
     "typescript": "^5.5.4"
   },
