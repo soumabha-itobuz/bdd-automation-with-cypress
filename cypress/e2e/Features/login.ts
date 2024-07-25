@@ -1,7 +1,8 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 
 Given("Home page is opened", function () {
-  cy.visit("https://www.saucedemo.com/");
+  cy.log(Cypress.env("baseURL"));
+  cy.visit(Cypress.env("baseURL"));
   cy.wait(7000);
 });
 When("test when", () => {

@@ -7,6 +7,7 @@ export default defineConfig({
   e2e: {
     supportFile: false,
     specPattern: "**/**/*.feature",
+    baseUrl: "https://www.automationexercise.com/",
     async setupNodeEvents(
       on: Cypress.PluginEvents,
       config: Cypress.PluginConfigOptions
