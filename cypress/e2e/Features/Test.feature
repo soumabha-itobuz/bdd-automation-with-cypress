@@ -1,5 +1,6 @@
-Feature: Feature Name
+Feature: Login name
 
-    @TagName
-    Scenario: Scenario Name
-        Given I am in the Swag Labs login page
+Scenario: Scenario Name
+    Given Home page is opened
+    When test when
+    Then test then
