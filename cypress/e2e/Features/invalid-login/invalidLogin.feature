@@ -1,6 +1,6 @@
-Feature: Login functionality
+Feature: Invalid Login functionality
 
-Scenario: Login as an existing user
+Scenario: Check invalid Login functionality
     Given Automation exercise page is opened
     When Verify it is the home page or not
     Then Click on the Signup Login button
