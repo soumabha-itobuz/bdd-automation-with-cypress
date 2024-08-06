@@ -27,5 +27,17 @@ Then("Upload file and Click 'Submit' button", () => {
 });
 When(
   "Verify success message 'Success! Your details have been submitted successfully.' is visible",
-  () => {}
+  () => {
+    cy.scrollTo("top");
+    cy.get('[class="status alert alert-success"]').should(
+      "have.text",
+      "Success! Your details have been submitted successfully."
+    );
+  }
+);
+Then(
+  "Click 'Home' button and verify that landed to home page successfully",
+  () => {
+    cy.get('[class="btn btn-success"]').click();
+  }
 );
