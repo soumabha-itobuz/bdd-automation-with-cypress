@@ -14,8 +14,8 @@ When("Verify that home page is visible successfully", () => {
   cy.get("h2").eq(0).should("have.text", "Login to your account");
 });
 Then("Enter correct email address and password", () => {
-  cy.get('[data-qa="login-email"]').type("zenia+test@itobuz.com");
-  cy.get('[data-qa="login-password"]').type("Itobuz#1234");
+  cy.get('[data-qa="login-email"]').type(Cypress.env("userEmail"));
+  cy.get('[data-qa="login-password"]').type(Cypress.env("userPassword"));
 });
 Then("Click 'login' button", () => {
   cy.get('[data-qa="login-button"]').click();
