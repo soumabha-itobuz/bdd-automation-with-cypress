@@ -19,7 +19,7 @@ Then(
   "Enter name and already registered email address and Click 'Signup' button",
   () => {
     cy.get('[data-qa="signup-name"]').type(fullName);
-    cy.get('[data-qa="signup-email"]').type("zenia+test@itobuz.com");
+    cy.get('[data-qa="signup-email"]').type(Cypress.env("userEmail"));
     cy.get('[data-qa="signup-button"]').click();
   }
 );
