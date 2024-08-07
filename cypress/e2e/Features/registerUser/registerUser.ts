@@ -62,7 +62,7 @@ Then("Click 'Continue' button", () => {
   cy.get("[data-qa='continue-button']").click();
 });
 When("Verify that 'Logged in as username' is visible", () => {
-  cy.get("[class='nav navbar-nav'] > li:nth-child(10) > a > b").should(
+  cy.get("li:nth-child(10) a b").should(  
     "have.text",
     fullName
   );
