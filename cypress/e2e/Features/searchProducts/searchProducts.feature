@@ -1,6 +1,6 @@
-Feature: Verify All Products and product detail page
+Feature: Verify Search Products 
 
-Scenario: Verify All Products and product detail page
+Scenario: Verify Search Products 
     Given Automation exercise page is opened
     When Verify it is the home page or not
     Then Click on 'Products' button
