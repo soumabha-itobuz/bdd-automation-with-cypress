@@ -1,6 +1,5 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 
-let productName;
 Given("Automation exercise page is opened", () => {
   cy.visit(Cypress.env("baseURL"));
   cy.wait(2000);
