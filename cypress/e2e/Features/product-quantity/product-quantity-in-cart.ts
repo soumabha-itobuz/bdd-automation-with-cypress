@@ -25,19 +25,19 @@ When("Verify product detail is opened", () => {
   cy.url().should("contain", "product_details");
 });
 Then("Increase quantity to 4", () => {
-  cy.get('[id="quantity"]').type("4");
+  cy.get('[id="quantity"]').clear().type("4");
 });
 Then('Click "Add to cart" button', () => {
   cy.get('[class="btn btn-default cart"]').click();
 });
 Then('Click "View Cart" button', () => {
-  cy.get('[href="/view_cart"]').click();
+  cy.get('[href="/view_cart"]').eq(1).click();
 });
 When(
   "Verify that product is displayed in cart page with exact quantity",
   () => {
     cy.get(".cart_quantity button").then(($count) => {
-      expect($count.text()).to.be("4");
+      expect($count.text()).to.eq("4");
     });
     cy.get(".cart_description h4 a").then(($name) => {
       expect($name.text()).to.eq(productName);
