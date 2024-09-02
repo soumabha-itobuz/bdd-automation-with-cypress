@@ -20,7 +20,7 @@ Then("Enter product name in search input and click search button", () => {
     .its("length")
     .then((count) => {
       const randomItem = Math.floor(Math.random() * count);
-      cy.get('[class="single-products"] > div > p')
+      cy.get('.productinfo.text-center p')
         .eq(randomItem)
         .then(($div) => {
           productName = $div.text();
@@ -33,5 +33,6 @@ When('Verify "SEARCHED PRODUCTS" is visible', () => {
   cy.get("h2").eq(2).should("have.text", "Searched Products");
 });
 When("Verify all the products related to search are visible", () => {
-  cy.get('[class="single-products"] > div > p').first().contains(productName);
+  cy.get('.productinfo.text-center p').first().contains(productName);
 });
+
