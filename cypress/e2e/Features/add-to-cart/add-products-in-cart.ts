@@ -1,7 +1,9 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 
 let productName = [],
-  productPrice = [];
+  productPrice = [],
+  sum2 = 0;
+
 Given("Automation exercise page is opened", () => {
   cy.visit(Cypress.env("baseURL"));
   cy.wait(2000);
@@ -51,24 +53,15 @@ When("Verify both products are added to Cart", () => {
   });
 });
 When("Verify their prices, quantity and total price", () => {
-  console.log(
-    cy
-      .get('[class="cart_price"] > p')
-      .eq(0)
-      .then(($) => $.text())
-  );
   cy.get('[class="cart_price"] > p').each(($itemPrice, index) => {
-    console.log("HELLOO");
     const price = $itemPrice.text().substring(4);
-    console.log(price, "FIRST");
     expect(price).to.eq(productPrice[index]);
   });
-  const sum = productPrice.reduce((acc, curr) => {
-    acc += Number(curr);
-  }, 0);
-  let sum2 = 0;
-  cy.get('[class="cart_total_price"]').each(($itemTotalPrice) => {
-    sum2 += Number($itemTotalPrice.text().substring(4));
-  });
-  expect(sum).to.eq(sum2);
+  const sum = productPrice.reduce((acc, curr) => (acc += Number(curr)), 0);
+
+  cy.get('[class="cart_total_price"]')
+    .each(($itemTotalPrice) => {
+      sum2 = sum2 + Number($itemTotalPrice.text().substring(4));
+    })
+    .then(() => expect(sum).to.eq(sum2));
 });
