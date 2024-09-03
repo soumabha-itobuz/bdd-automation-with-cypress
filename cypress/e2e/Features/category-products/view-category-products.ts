@@ -21,12 +21,12 @@ Then(
       .its("length")
       .then(($count) => {
         const randomNumber = Math.floor(Math.random() * $count);
-        cy.get('[id="Women"] .panel-body li')
+        cy.get('[id="Women"] .panel-body li a')
           .eq(randomNumber)
           .then(($ele) => {
             categoryName = $ele.text();
           });
-        cy.get('[id="Women"] .panel-body li').eq(randomNumber).click();
+        cy.get('[id="Women"] .panel-body li a').eq(randomNumber).click();
       });
   }
 );
@@ -34,7 +34,7 @@ When(
   "Verify that category page is displayed and confirm text 'WOMEN - TOPS PRODUCTS'",
   () => {
     cy.get(".title").then(($heading) => {
-      expect($heading.text()).to.eq(`Women - ${categoryName} Products`);
+      expect($heading.text()).to.eq(`Women - ${categoryName}Products`);
     });
   }
 );
@@ -46,17 +46,17 @@ Then(
       .its("length")
       .then(($count) => {
         const randomNumber = Math.floor(Math.random() * $count);
-        cy.get('[id="Men"] .panel-body li')
+        cy.get('[id="Men"] .panel-body li a')
           .eq(randomNumber)
           .then(($ele) => {
             categoryName = $ele.text();
           });
-        cy.get('[id="Men"] .panel-body li').eq(randomNumber).click();
+        cy.get('[id="Men"] .panel-body li a').eq(randomNumber).click();
       });
   }
 );
 When("Verify that user is navigated to that category page", () => {
   cy.get(".title").then(($heading) => {
-    expect($heading.text()).to.eq(`Men - ${categoryName} Products`);
+    expect($heading.text()).to.eq(`Men - ${categoryName}Products`);
   });
 });
