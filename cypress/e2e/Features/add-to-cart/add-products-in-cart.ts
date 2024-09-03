@@ -28,7 +28,7 @@ Then("Hover over first product and click 'Add to cart'", () => {
   cy.get('[class="btn btn-default add-to-cart"]').first().click();
 });
 Then("Click 'Continue Shopping' button", () => {
-  cy.get('[class="btn btn-success close-modal btn-block"]').click();
+  cy.get('.close-modal').click();
 });
 Then("Hover over second product and click 'Add to cart'", () => {
   cy.get('[class="productinfo text-center"] > p')
