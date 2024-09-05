@@ -1,8 +1,7 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 
 let productName = [],
-  productPrice = [],
-  sum2 = 0;
+  productPrice = [];
 
 Given("Automation exercise page is opened", () => {
   cy.visit(Cypress.env("baseURL"));
