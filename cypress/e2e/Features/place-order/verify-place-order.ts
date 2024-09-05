@@ -15,32 +15,32 @@ Then("Click on 'Products' button", () => {
   cy.get('[href="/products"]').click();
 });
 Then("Hover over first product and click 'Add to cart'", () => {
-  cy.get('[class="productinfo text-center"] > p')
+  cy.get('.productinfo > p')
     .first()
     .then(($elem) => {
       productName.push($elem.text());
     });
-  cy.get('[class="productinfo text-center"]>h2')
+  cy.get('.productinfo > h2')
     .first()
     .then(($elem) => {
       productPrice.push($elem.text().substring(4));
     });
-  cy.get('[class="btn btn-default add-to-cart"]').first().click();
+  cy.get('.add-to-cart').first().click();
 });
 Then("Click 'View Cart' button", () => {
-  cy.get('[href="/view_cart"]').first().click();
+  cy.get('[href="/view_cart"]').eq(1).click();
 });
-When("Verify both products are added to Cart", () => {
+When("Verify the product is added to Cart", () => {
   cy.get('[class="cart_description"] > h4').each(($itemName, index) => {
     const name = $itemName.text();
     expect(name).to.eq(productName[index]);
   });
 });
-Then("Click Proceed To Checkout", () => {
+Then("Click Proceed To Checkout after adding to cart", () => {
   cy.get("a.check_out").click();
 });
-Then('Click "Register / Login" button', () => {
-  cy.get('[href="/login"]').click();
+Then("Click 'Register Login' button", () => {
+  cy.get('[href="/login"]').eq(1).click();
 });
 Then("Log into the account", () => {
   cy.get('[data-qa="login-email"]').type(Cypress.env("userEmail"));
@@ -54,11 +54,11 @@ Then("Click Proceed To Checkout", () => {
   cy.get("a.check_out").click();
 });
 When("Verify Address Details and Review Your Order", () => {
-  cy.get('[class="address_firstname address_lastname"]').should(
+  cy.get('[class="address_firstname address_lastname"]').eq(0).should(
     "have.text",
     "Mrs. Zenia Banerjee"
   );
-  cy.get('[class="address_address1 address_address2"]').should(
+  cy.get('[class="address_address1 address_address2"]').eq(0).should(
     "have.text",
     "Itobuz"
   );
